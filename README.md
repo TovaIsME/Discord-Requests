@@ -36,7 +36,7 @@ open dev tool and paste this in the console **NOTE : DONT SHARE THE TOKEN TO ANY
 
 simply run the file **run.bat** or open terminal/cmd and run the command npm start
 
-##How to use the api
+## How to use the api
 
 1-Typing Request :
 https://localhost:3000/typing/ur-token/channel-ID/time
