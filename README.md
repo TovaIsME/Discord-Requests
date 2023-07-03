@@ -9,7 +9,9 @@ This is a easy api to send requests to the discord api for trolling
 Run the install.bat file to download the packages or open the cmd/terminal and run
 
 ```bash
-npm install
+npm install --save-dev @types/node @types/express
+npm install -g ts-node typescript
+npm install axios express
 ```
 
 ## Easy way to get ur discord token
