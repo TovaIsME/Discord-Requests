@@ -2,7 +2,9 @@ import express, { Request, Response } from 'express';
 import axios, {AxiosResponse} from 'axios';
 const app = express()
 const PORT = 3000 || process.env.PORT
-
+app.get('/', (req : Request, res: Response) => {
+  res.send('Welcome To Home Page')
+})
 app.get('/typing/:token/:channelId/:time', (req: Request, res: Response) => {
     const { token, channelId, time } = req.params;
     if (!token || !channelId || !time) {
@@ -190,7 +192,7 @@ app.get('/typing/:token/:channelId/:time', (req: Request, res: Response) => {
       res.json(sortedGuilds);
     } catch (error) {
       console.error('Error occurred:', error);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send('This error might be caused by discord api Reason : Rate Limit, However You Can Try Another Request After 0.5 seconds');
     }
   });
   
@@ -231,13 +233,13 @@ app.get('/typing/:token/:channelId/:time', (req: Request, res: Response) => {
   
       res.json(sortedChannels);
     } catch (error) {
-      console.error('Error occurred:', error);
-      res.status(500).send('Internal Server Error');
+      console.error('Error occurred', error);
+      res.status(500).send('This error might be caused by discord api Reason : Rate Limit, However You Can Try Another Request After 0.5 seconds');
     }
   });
-  
-  
-  
+app.get('*', (req : Request, res : Response) => {
+  res.redirect('/')
+})
 
 app.listen(PORT, () => {
     console.log('app is working on', PORT)
